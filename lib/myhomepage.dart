@@ -8,7 +8,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  // Controller untuk membaca input Username dan Password
+  // Pembuatan Variabel Yang Akan Dipakai
   TextEditingController inputUsername = TextEditingController();
   TextEditingController inputPassword = TextEditingController();
 
@@ -25,127 +25,96 @@ class _MyHomePageState extends State<MyHomePage> {
         ), // Ungu Gelap Columbina
         foregroundColor: Colors.white,
       ),
-      // Background Lilac Soft khas Columbina
+      // Background Lilac Soft
       backgroundColor: const Color.fromARGB(255, 205, 190, 230),
-      body: Center(
-        child: SingleChildScrollView(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              // Card Form Login
-              Container(
-                width: 320,
-                padding: const EdgeInsets.all(24),
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(25),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.black.withOpacity(0.1),
-                      blurRadius: 10,
-                      offset: const Offset(0, 4),
-                    ),
-                  ],
-                ),
-                child: Column(
-                  children: [
-                    const Text(
-                      "LOGIN",
-                      style: TextStyle(
-                        fontSize: 22,
-                        fontWeight: FontWeight.bold,
-                        color: Color.fromARGB(255, 120, 40, 95),
-                      ),
-                    ),
-                    const SizedBox(height: 16),
+      body: Column(
+        children: [
+          const Padding(padding: EdgeInsets.all(12)),
 
-                    // Input Username
-                    TextFormField(
-                      controller: inputUsername,
-                      decoration: InputDecoration(
-                        prefixIcon: const Icon(
-                          Icons.person,
-                          color: Color.fromARGB(255, 120, 40, 95),
-                        ),
-                        hintText: 'Username',
-                        fillColor: const Color.fromARGB(
-                          255,
-                          255,
-                          220,
-                          235,
-                        ), // Pink Pastel
-                        filled: true,
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(30),
-                          borderSide: BorderSide.none,
-                        ),
-                      ),
+          // Input Username
+          Center(
+            child: Container(
+              width: 300,
+              child: TextFormField(
+                controller: inputUsername,
+                decoration: const InputDecoration(
+                  fillColor: Color.fromARGB(
+                    255,
+                    255,
+                    220,
+                    235,
+                  ), // Pink Pastel Columbina
+                  hintText: 'Masukan Username Kamu',
+                  hintStyle: TextStyle(
+                    color: Color.fromARGB(255, 150, 80, 110),
+                  ),
+                  filled: true,
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(40)),
+                    borderSide: BorderSide(
+                      color: Color.fromARGB(255, 120, 40, 95),
                     ),
-
-                    const SizedBox(height: 12),
-
-                    // Input Password
-                    TextFormField(
-                      controller: inputPassword,
-                      obscureText: true, // Sembunyikan karakter password
-                      decoration: InputDecoration(
-                        prefixIcon: const Icon(
-                          Icons.lock,
-                          color: Color.fromARGB(255, 120, 40, 95),
-                        ),
-                        hintText: 'Password',
-                        fillColor: const Color.fromARGB(
-                          255,
-                          255,
-                          220,
-                          235,
-                        ), // Pink Pastel
-                        filled: true,
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(30),
-                          borderSide: BorderSide.none,
-                        ),
-                      ),
-                    ),
-
-                    const SizedBox(height: 20),
-
-                    // Tombol Login
-                    SizedBox(
-                      width: double.infinity,
-                      height: 45,
-                      child: ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: const Color.fromARGB(
-                            255,
-                            120,
-                            40,
-                            95,
-                          ),
-                          foregroundColor: Colors.white,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(25),
-                          ),
-                        ),
-                        onPressed: () {
-                          print("Username: ${inputUsername.text}");
-                          print("Password: ${inputPassword.text}");
-                        },
-                        child: const Text(
-                          "Masuk",
-                          style: TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
+                  ),
                 ),
               ),
-            ],
+            ),
           ),
-        ),
+
+          const Padding(padding: EdgeInsets.all(8)),
+
+          // Input Password
+          Center(
+            child: Container(
+              width: 300,
+              child: TextFormField(
+                controller: inputPassword,
+                obscureText: true, // Sembunyikan karakter password
+                decoration: const InputDecoration(
+                  fillColor: Color.fromARGB(
+                    255,
+                    255,
+                    220,
+                    235,
+                  ), // Pink Pastel Columbina
+                  hintText: 'Masukan Password Kamu',
+                  hintStyle: TextStyle(
+                    color: Color.fromARGB(255, 150, 80, 110),
+                  ),
+                  filled: true,
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(40)),
+                    borderSide: BorderSide(
+                      color: Color.fromARGB(255, 120, 40, 95),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ),
+
+          const Padding(padding: EdgeInsets.all(12)),
+
+          // Tombol Login
+          ElevatedButton(
+            style: ElevatedButton.styleFrom(
+              backgroundColor: const Color.fromARGB(
+                255,
+                120,
+                40,
+                95,
+              ), // Ungu Gelap
+              foregroundColor: Colors.white,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(20),
+              ),
+            ),
+            child: const Text("Login"),
+            onPressed: () {
+              print(inputUsername.text);
+              print(inputPassword.text);
+            },
+          ),
+        ],
       ),
     );
   }
